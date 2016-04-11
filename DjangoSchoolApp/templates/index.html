@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}College Project{% endblock %}</title>
+        <meta name="description" content="">
+        <style>
+			ul {
+			    list-style-type: none;
+			    margin: 0;
+			    padding: 0;
+			    overflow: hidden;
+			    background-color: #333;
+			}
+			li {
+			    float: left;
+			    border-right:1px solid #bbb;
+			}
+			li:last-child {
+			    border-right: none;
+			}
+			li a {
+			    display: block;
+			    color: white;
+			    text-align: center;
+			    padding: 14px 16px;
+			    text-decoration: none;
+			}
+			li a:hover:not(.active) {
+			    background-color: #111;
+			}
+			.active {
+			    background-color: #0000ff;
+			}
+		</style>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    </head>
+    <body>
+    	<ul class="nav">
+    		<li><a href="{% url 'index' %}">Home</a></li>
+			<li><a href="{% url 'student' %}">Student</a></li>
+			<li><a href="{% url 'professor' %}">Professor</a></li>
+			<li><a href="{% url 'course' %}">Course</a></li>
+            <li class="navLi" style="float: right"><a href="/admin/logout/">Log out</a></li>
+		</ul>
+        {% block content %}
+    	<h1 class="jumbotron">College Registration</h1>
+        <div class="btn-group">
+            <form action="student/new/" method="POST" style="margin: 5px">{% csrf_token %}
+                <button type="submit" class="btn btn-default" value="Add New Student" name="mybtn">Add New Student</button>
+            </form>
+            <form action="professor/new/" method="POST" style="margin: 5px">{% csrf_token %}
+                <button type="submit" class="btn btn-default" value="Add New Professor" name="mybtn1">Add New Professor</button>
+            </form>
+            <form action="course/new/" method="POST" style="margin: 5px">{% csrf_token %}
+                <button type="submit" class="btn btn-default" value="Add New Course" name="mybtn2">Add New Course</button>
+            </form>
+        </div>
+    	{% endblock content %}
+    </body>
+</html>

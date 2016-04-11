@@ -1,0 +1,21 @@
+{% extends "index.html" %}
+{% block title %}Professors{% endblock %}
+{% block content %}
+<h2 class="jumbotron">Professor List</h2>
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Professors
+                <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    {% if professor_List %}
+        {% for professor in professor_List %}
+            <li><a href="{% url 'professor_detail' professor.id %}">{{professor}}</a></li>
+        {% endfor %}
+    {% else %}
+        <li><a href="">Empty</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% endblock content %}

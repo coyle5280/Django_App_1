@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block title %}Courses{% endblock %}
+{% block content %}
+<h2 class="jumbotron">Course List</h2>
+<div class="dropdown">
+	<label>Edit Course:</label>
+	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Courses
+				<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+	{% if courseList %}
+		{% for course in courseList %}
+			<li><a href="{% url 'course_detail' course.id %}">{{course}}</a></li>
+		{% endfor %}
+	{% else %}
+		<li><a href="">Empty</a></li>
+	{% endif %}
+	</ul>
+</div>
+{% endblock content %}

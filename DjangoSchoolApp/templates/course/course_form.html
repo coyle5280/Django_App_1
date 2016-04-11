@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block title %}Add Courses{% endblock %}
+{% block content %}
+<h2 class="jumbotron">Add New Professor</h2>
+<form method="POST"> {% csrf_token %}
+    <div class="form-inline" style="margin: 5px">
+        <label for="name">Course name: </label>
+        <input id="name" type="text" name="name" value="{{ name }}"></input>
+    </div>
+    <div class="form-inline" style="margin: 5px">
+        <label for="number">Number:</label>
+        <input id="number" type="number" name="number" value="{{number}}"></input>
+    </div>
+    <div class="form-inline" style="margin: 5px">
+        <label for="department">Department:</label>
+        <input id="department" type="text" name="department" value="{{department}}"></input>
+    </div>
+    <button type="submit" value="OK">Add New Course</button>
+</form>
+{% endblock content %}

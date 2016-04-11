@@ -15,7 +15,21 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from college import views
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', views.index, name='index'),
+    url(r'^student/index', views.student, name='student'),
+    url(r'^student/(?P<id>\d+)/', views.student_detail, name='student_detail'),
+    url(r'^professor/(?P<id>\d+)/', views.professor_detail, name='professor_detail'),
+    url(r'^professor/index', views.professor, name='professor'),
+    url(r'^course/index', views.course, name='course'),
+    url(r'^course/(?P<id>\d+)/', views.course_detail, name='course_detail'),
+    url(r'^login/$', admin.site.login, name='login'),
+    url(r'^accounts/login/$', admin.site.login, name='login'),
+    url(r'^student/new/$', views.new_student, name='new_student'),
+    url(r'^professor/new/$', views.new_professor, name='new_professor'),
+    url(r'^course/new/$', views.new_course, name='new_course')
 ]

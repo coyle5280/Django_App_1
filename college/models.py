@@ -1,14 +1,14 @@
 from __future__ import unicode_literals
-
 from django.db import models
-
-# Create your models here.
 
 
 class Student(models.Model):
     student_id = models.IntegerField()
     name = models.CharField(max_length=55)
     start_year = models.IntegerField()
+
+    def __unicode__(self):
+        return self.name
 
 
 class Professor(models.Model):
@@ -32,5 +32,6 @@ class Course(models.Model):
 
 class Section(models.Model):
     name = models.CharField(max_length=55)
+    location = models.CharField(max_length=200)
     course = models.ForeignKey(Course)
     professor = models.ForeignKey(Professor)
