@@ -3,9 +3,10 @@
 {% block content %}
 <h2 class="jumbotron">Professor List</h2>
 <div class="dropdown">
+    <label style="margin: 10px">Edit Professor:</label>
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Professors
+                Select
                 <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -18,4 +19,15 @@
     {% endif %}
     </ul>
 </div>
+{% if professor_List %}
+<div>
+    <h4 style="margin: 10px">Current Professors:</h4>
+	<hr/>
+    <ul class="student_list">
+        {% for professor in professor_List %}
+            <li>{{professor}}</li>
+        {% endfor %}
+	</ul>
+</div>
+{% endif %}
 {% endblock content %}

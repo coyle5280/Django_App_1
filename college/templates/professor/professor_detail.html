@@ -1,7 +1,9 @@
-<a href="{% url 'professor' %}">Back</a>
-<br />
+{% extends "index.html" %}
+{% block title %}Professor Detail{% endblock %}
+{% block content %}
 <h1><u>{{professor}}</u></h1>
 <p>Professor Id: {{professor.professor_id}}</p>
 <p>Office Number: {{professor.office_number}}</p>
 <p>Professor Name: {{professor.name}}</p>
 <p>Professor Salary: {{professor.salary}}</p>
+{% endblock content %}

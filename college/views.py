@@ -13,13 +13,10 @@ from college.forms import CourseForm
 
 from django.http import Http404
 
-from college.forms import StudentForm
-
 
 @login_required
 def index(request):
     return render(request, 'index.html')
-
 
 
 @login_required
@@ -54,6 +51,13 @@ def new_student(request):
 
 @login_required
 def professor(request):
+    professor_list = Professor.objects.all()
+    context = {'professor_List': professor_list}
+    return render(request, 'professor/professor.html', context)
+
+
+@login_required
+def professor_update(request):
     professor_list = Professor.objects.all()
     context = {'professor_List': professor_list}
     return render(request, 'professor/professor.html', context)

@@ -4,19 +4,30 @@
 {% block content %}
 <h2 class="jumbotron">Student List</h2>
 <div class="dropdown">
+    <label style="margin: 10px">Edit Student:</label>
 	<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
 			data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				Students
+				Select
 				<span class="caret"></span>
 	</button>
 {% if student_List %}
-	<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 		{% for student in student_List %}
 			<li><a href="{% url 'student_detail' student.id %}">{{student}}</a></li>
 		{% endfor %}
-{% else %}
-	<li><a href="">Empty</a></li>
+</ul>
+    </div>
 {% endif %}
+
+{% if student_List %}
+<div>
+    <h4 style="margin: 10px">Current Students:</h4>
+	<hr/>
+    <ul class="student_list">
+        {% for student in student_List %}
+            <li>{{student}}</li>
+        {% endfor %}
 	</ul>
 </div>
+{% endif %}
 {% endblock content %}

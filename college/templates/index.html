@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html>
     <head>
@@ -5,45 +7,21 @@
         <title>{% block title %}College Project{% endblock %}</title>
         <meta name="description" content="">
         <style>
-			ul {
-			    list-style-type: none;
-			    margin: 0;
-			    padding: 0;
-			    overflow: hidden;
-			    background-color: #333;
-			}
-			li {
-			    float: left;
-			    border-right:1px solid #bbb;
-			}
-			li:last-child {
-			    border-right: none;
-			}
-			li a {
-			    display: block;
-			    color: white;
-			    text-align: center;
-			    padding: 14px 16px;
-			    text-decoration: none;
-			}
-			li a:hover:not(.active) {
-			    background-color: #111;
-			}
-			.active {
-			    background-color: #0000ff;
-			}
+
 		</style>
+		{% load staticfiles %}
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="{% static './college/style.css' %}"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </head>
     <body>
     	<ul class="nav">
-    		<li><a href="{% url 'index' %}">Home</a></li>
-			<li><a href="{% url 'student' %}">Student</a></li>
-			<li><a href="{% url 'professor' %}">Professor</a></li>
-			<li><a href="{% url 'course' %}">Course</a></li>
+    		<li class="liNav"><a href="{% url 'index' %}">Home</a></li>
+			<li class="liNav"><a href="{% url 'student' %}">Student</a></li>
+			<li class="liNav"><a href="{% url 'professor' %}">Professor</a></li>
+			<li class="liNav"><a href="{% url 'course' %}">Course</a></li>
             <li class="navLi" style="float: right"><a href="/admin/logout/">Log out</a></li>
 		</ul>
         {% block content %}
