@@ -3,19 +3,10 @@
 
 {% block content %}
 <h2 class="jumbotron">Add New Student</h2>
-<form method="POST"> {% csrf_token %}
-    <div class="form-group" style="margin: 5px">
-        <label for="student_id">Student Id: </label>
-        <input id="student_id" type="text" name="student_id" value="{{ student_id }}"></input>
-    </div>
-    <div class="form-group" style="margin: 5px">
-        <label for="name">Student Name:</label>
-        <input id="name" type="text" name="name" value="{{name}}"></input>
-    </div>
-    <div class="form-group" style="margin: 5px">
-        <label for="start_year">Start Year:</label>
-        <input id="start_year" type="number" name="start_year" value="{{start_year}}"></input>
-    </div>
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+     <br>
     <button class="btn btn-primary" type="submit" value="OK" style="margin: 5px">Add Student</button>
 </form>
 {% endblock content %}
