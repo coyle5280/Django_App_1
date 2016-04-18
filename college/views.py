@@ -6,10 +6,12 @@ from django.contrib.auth.decorators import login_required
 from college.models import Student
 from college.models import Course
 from college.models import Professor
+from college.models import Section
 
 from college.forms import StudentForm
 from college.forms import ProfessorForm
 from college.forms import CourseForm
+from college.forms import SectionForm
 
 from django.http import Http404
 
@@ -34,6 +36,24 @@ def student_detail(request, id):
         raise Http404('This student does not exist')
     return render(request, 'student/student_detail.html', {
         'student': student_info
+    })
+
+
+@login_required
+def section(request):
+    list_off_sections = Section.objects.all()
+    context = {'section_List': list_off_sections}
+    return render(request, 'section/section.html', context)
+
+
+@login_required
+def section_detail(request, id):
+    try:
+        section_info = Section.objects.get(id=id)
+    except Student.DoesNotExist:
+        raise Http404('This section does not exist')
+    return render(request, 'section/section_detail.html', {
+        'section': section_info
     })
 
 
@@ -112,3 +132,14 @@ def new_course(request):
     else:
         form = ProfessorForm()
     return render(request, 'course/course_form.html', {'form': form})
+
+@login_required
+def new_section(request):
+    if request.method == "POST":
+        form = SectionForm(request.POST)
+        if form.is_valid():
+            SectionForm.save(form)
+            return redirect('course')
+    else:
+        form = SectionForm()
+    return render(request, 'section/section_form.html', {'form': form})

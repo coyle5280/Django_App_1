@@ -31,5 +31,8 @@ urlpatterns = [
     url(r'^accounts/login/$', admin.site.login, name='login'),
     url(r'^student/new/$', views.new_student, name='new_student'),
     url(r'^professor/new/$', views.new_professor, name='new_professor'),
-    url(r'^course/new/$', views.new_course, name='new_course')
+    url(r'^course/new/$', views.new_course, name='new_course'),
+    url(r'^sections/', views.section, name='section'),
+    url(r'^section/(?P<id>\d+)/', views.section_detail, name='section_detail'),
+    url(r'^section/new/$', views.new_section, name='new_section')
 ]

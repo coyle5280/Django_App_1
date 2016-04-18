@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from college.models import Student
 from college.models import Professor
 from college.models import Course
-
+from college.models import Section
 
 class StudentForm(ModelForm):
     class Meta:
@@ -22,3 +22,9 @@ class CourseForm(ModelForm):
     class Meta:
         model = Course
         fields = ['name', 'number', 'department']
+
+
+class SectionForm(ModelForm):
+    class Meta:
+        model = Section
+        fields = ['name', 'course', 'professor']

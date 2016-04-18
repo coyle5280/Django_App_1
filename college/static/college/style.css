@@ -1,5 +1,6 @@
 .jumbotron {
     background-color: blue;
+    padding: 25px;
 }
 
 .nav {
@@ -12,6 +13,7 @@
 .liNav {
     float: left;
     border-right:1px solid #bbb;
+    height: 60px;
 }
 li:last-child {
     border-right: none;
@@ -28,4 +30,12 @@ li a:hover:not(.active) {
 }
 .active {
     background-color: #0000ff;
+}
+
+body {
+    background: url("./MSUDenver_50th_Formal.png");
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+    background-position: 50% 250px;
+    background-margin:
 }

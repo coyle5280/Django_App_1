@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+{% block title %}Professors{% endblock %}
+{% block content %}
+<h2 class="jumbotron">Section List</h2>
+<div class="dropdown">
+    <label style="margin: 10px">Edit Section:</label>
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select
+                <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    {% if section_List %}
+        {% for section in section_List %}
+            <li><a href="{% url 'section_detail' section.id %}">{{section.name}}</a></li>
+        {% endfor %}
+    {% else %}
+        <li><a href="">Empty</a></li>
+    {% endif %}
+    </ul>
+</div>
+{% if section_List %}
+<div>
+    <h4 style="margin: 10px">Current Sections:</h4>
+	<hr/>
+    <ul class="student_list">
+        {% for section in section_List %}
+            <li>{{section.name}}</li>
+        {% endfor %}
+	</ul>
+</div>
+{% endif %}
+{% endblock content %}

@@ -32,6 +32,8 @@ class Course(models.Model):
 
 class Section(models.Model):
     name = models.CharField(max_length=55)
-    location = models.CharField(max_length=200)
     course = models.ForeignKey(Course)
     professor = models.ForeignKey(Professor)
+
+    def __unicode__(self):
+        return self.name
